@@ -41,7 +41,6 @@ echo "Redroid environment initialized successfully."
 ```bash
 [Unit]
 Description=Initialize Redroid Environment (BinderFS & DMA Heaps)
-# 关键：确保在 Docker 启动前执行，防止 Docker 抢先创建文件夹导致 "Is a directory" 错误
 Before=docker.service
 After=local-fs.target
 
