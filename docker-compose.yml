@@ -1,0 +1,61 @@
+services:
+  redroid:
+    #image: redroid/redroid:14.0.0-latest
+    #image: iceblacktea/redroid-arm64:12.0.0-250116
+    image: cnflysky/redroid-rk3588:lineage-20
+    container_name: redroid
+    privileged: true
+    restart: unless-stopped
+    
+    # --- 网络模式 ---
+    # 不可使用host, 会导致主机网络问题
+    # network_mode: bridge
+    ports:
+      - "5555:5555"
+        #- "50100:50000-50100/udp"
+    volumes:
+      - ./data:/data
+      - /home/hiroi/Shared:/shared
+      
+      # --- 4. 核心硬件映射 ---
+      # 显存管理 (解决黑屏)
+      - /dev/dma_heap:/dev/dma_heap
+      # Binder 通信 (解决无法启动)
+      - /dev/binderfs:/dev/binderfs
+      - /dev/binderfs/binder:/dev/binder
+      - /dev/binderfs/hwbinder:/dev/hwbinder
+      - /dev/binderfs/vndbinder:/dev/vndbinder
+        #- /dev/input:/host_input
+    devices: 
+      # 显示渲染节点
+      - /dev/mali0:/dev/mali0
+      - /dev/mpp_service:/dev/mpp_service
+      - /dev/rga:/dev/rga
+        #      - /dev/uhid:/dev/uhid
+      # 摄像头/视频设备 (可选)
+      # - /dev/video11:/dev/video11
+      #      - /dev/tty:/dev/tty
+    command:
+      - androidboot.redroid_gpu_mode=mali
+
+      - androidboot.redroid_width=2560
+      - androidboot.redroid_height=1440
+      - androidboot.redroid_fps=60
+      - ro.build.characteristics=tablet
+      #- androidboot.redroid_magisk=1
+      # 建议加上这个以防万一
+      - androidboot.use_memfd=true
+    networks:
+      - redroid-net
+  webscreen:
+    image: dukihiroi/webscreen:latest
+    container_name: webscreen
+    ports:
+      - "8079:8079"
+    privileged: true
+    network_mode: "host"
+
+
+networks:
+  redroid-net:
+    driver: bridge
