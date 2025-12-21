@@ -71,9 +71,7 @@ services:
       - "5555:5555"
         #- "50100:50000-50100/udp"
     volumes:
-      - ./data:/data
-      - /home/hiroi/Shared:/shared
-      
+      - ./data:/data      
       - /dev/dma_heap:/dev/dma_heap
       - /dev/binderfs:/dev/binderfs
       - /dev/binderfs/binder:/dev/binder
