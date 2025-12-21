@@ -36,6 +36,7 @@ echo "Redroid environment initialized successfully."
 ```
 
 `sudo chmod +x /usr/local/bin/redroid-init.sh`
+
 `sudo nano /etc/systemd/system/redroid-init.service`
 
 ```bash
@@ -53,7 +54,9 @@ RemainAfterExit=yes
 WantedBy=multi-user.target
 ```
 `sudo systemctl daemon-reload`
+
 `sudo systemctl enable redroid-init.service`
+
 `sudo systemctl start redroid-init.service`
 
 ## 2. Docker Compose Config
