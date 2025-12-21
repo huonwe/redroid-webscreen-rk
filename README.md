@@ -1,4 +1,4 @@
-# Redroid Deploy (rk3588 armbian vender kernel 6.1.115 fix)
+# Redroid Deploy (rk3588 armbian vendor kernel 6.1.115 fix)
 
 ## 1. Preparation
 `sudo nano /usr/local/bin/redroid-init.sh`
@@ -71,9 +71,7 @@ services:
       - "5555:5555"
         #- "50100:50000-50100/udp"
     volumes:
-      - ./data:/data
-      - /home/hiroi/Shared:/shared
-      
+      - ./data:/data      
       - /dev/dma_heap:/dev/dma_heap
       - /dev/binderfs:/dev/binderfs
       - /dev/binderfs/binder:/dev/binder
