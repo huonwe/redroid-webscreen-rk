@@ -50,8 +50,6 @@ services:
   webscreen:
     image: dukihiroi/webscreen:latest
     container_name: webscreen
-    ports:
-      - "8079:8079"
     privileged: true
     network_mode: "host"
 

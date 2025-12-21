@@ -26,7 +26,7 @@ if [ -e /dev/dma_heap/reserved ]; then
     ln -s reserved /dev/dma_heap/linux,cma
     
     rm -f /dev/dma_heap/system-uncached-dma32
-    ln -s reserved /dev/dma_heap/system-uncached-dma32
+    ln -s system-uncached /dev/dma_heap/system-uncached-dma32
     # -------------
     
     chmod 666 /dev/dma_heap/*
