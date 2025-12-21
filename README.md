@@ -1,4 +1,4 @@
-# Redroid Deploy (rk3588 armbian vender kernel 6.1.115 fix)
+# Redroid Deploy (rk3588 armbian vendor kernel 6.1.115 fix)
 
 ## 1. Preparation
 `sudo nano /usr/local/bin/redroid-init.sh`
