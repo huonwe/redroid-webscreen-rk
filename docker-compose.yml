@@ -36,6 +36,8 @@ services:
   webscreen:
     image: dukihiroi/webscreen:latest
     container_name: webscreen
+    environment:
+      - PORT=8079
     privileged: true
     network_mode: "host"
 
