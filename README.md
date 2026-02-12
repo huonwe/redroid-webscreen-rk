@@ -1,5 +1,9 @@
 # Redroid Deploy (rk3588 armbian vendor kernel 6.1.115 fix)
 
+## NOTE
+
+`cnflysky/redroid-rk3588:lineage-20` was updated and now is able to support armbian vendor kernel 6.1.115 without any more fix (?). (2026/02)
+
 ## 1. Preparation
 `sudo nano /usr/local/bin/redroid-init.sh`
 ```bash
