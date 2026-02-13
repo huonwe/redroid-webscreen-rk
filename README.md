@@ -102,6 +102,7 @@ services:
   webscreen:
     image: dukihiroi/webscreen:latest
     container_name: webscreen
+    restart: unless-stopped
     privileged: true
     network_mode: "host"
 
