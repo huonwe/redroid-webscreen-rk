@@ -2,9 +2,9 @@
 
 ## NOTE
 
-`cnflysky/redroid-rk3588:lineage-20` was updated and now is able to support armbian vendor kernel 6.1.115 without any more fix (?). (2026/02)
+`cnflysky/redroid-rk3588:lineage-20` was updated and now is able to support armbian vendor kernel 6.1.115. (2026/02)
 
-## 1. Preparation
+~~## 1. Preparation~~ (You don't need to do it if you are using latest `cnflysky/redroid-rk3588:lineage-20`)
 `sudo nano /usr/local/bin/redroid-init.sh`
 ```bash
 #!/bin/bash
@@ -78,16 +78,7 @@ services:
       - "5555:5555"
         #- "50100:50000-50100/udp"
     volumes:
-      - ./data:/data      
-      - /dev/dma_heap:/dev/dma_heap
-      - /dev/binderfs:/dev/binderfs
-      - /dev/binderfs/binder:/dev/binder
-      - /dev/binderfs/hwbinder:/dev/hwbinder
-      - /dev/binderfs/vndbinder:/dev/vndbinder
-    devices: 
-      - /dev/mali0:/dev/mali0
-      - /dev/mpp_service:/dev/mpp_service
-      - /dev/rga:/dev/rga
+      - ./data:/data
     command:
       - androidboot.redroid_gpu_mode=mali
 
@@ -122,7 +113,3 @@ networks:
 docker compose up -d
 ```
 Then visit `<your server ip>:8079`, and connect `127.0.0.1:5555`
-
-
-## changelog
-- `/dev/dma_heap/system-uncached-dma32` should link to `system-uncached`, not `reserved`
