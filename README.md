@@ -5,6 +5,7 @@
 `cnflysky/redroid-rk3588:lineage-20` was updated and now is able to support armbian vendor kernel 6.1.115. (2026/02)
 
 ~~## 1. Preparation~~ (You don't need to do it if you are using latest `cnflysky/redroid-rk3588:lineage-20`)
+
 `sudo nano /usr/local/bin/redroid-init.sh`
 ```bash
 #!/bin/bash
