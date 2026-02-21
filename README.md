@@ -103,8 +103,12 @@ services:
     image: dukihiroi/webscreen:latest
     container_name: webscreen
     restart: unless-stopped
-    privileged: true
-    network_mode: "host"
+    network_mode: host
+    volumes:
+      - /dev/bus/usb:/dev/bus/usb
+    environment:
+      # - PORT=8079
+      - PIN=123456
 
 
 networks:
